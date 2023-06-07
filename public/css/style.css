@@ -1,0 +1,610 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap');
+
+:root {
+    --one-collor: #FFFFFF;
+    --two-collor: #bebebe;
+    --three-collor: #110E0F;
+    --four-collor: #FF620E;
+    --five-collor: #f8f9fd;
+    --six-collor: #1a1517;
+    --seven-collor: #ffcbaf;
+}
+/* html{
+    margin: 0px;
+    padding: 0px;
+} */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--three-collor);
+    margin: 0px;
+    padding: 0px;
+    cursor: default;
+}
+
+/* signup dan login */
+.constal{
+    background-color: var(--four-collor);
+}
+.form-signup{
+    border-radius: 25px;
+    background-color: var(--seven-collor);
+}
+.hero-1 {
+    width: 900px;
+}
+.form-log-sign{
+    border-radius: 25px;
+    background-color: var(--seven-collor);
+}
+
+.button-log-sign {
+    background-color: var(--four-collor);
+    color: var(--one-collor) !important;
+}
+.button-log-sign:focus{
+    box-shadow: none !important;
+}
+.button-log-sign:hover{
+    font-weight: bold;
+    background-color: var(--five-collor);
+    color: var(--four-collor)!important;
+}
+
+.cek{
+    color: var(--four-collor)!important;
+}
+.cek:hover{
+    color: var(--one-collor)!important;
+}
+/* end */
+
+
+/* nav css */
+.navbar {
+    background-color: var(--three-collor) !important;
+}
+.navbar-toggler:focus{
+    box-shadow: none !important;
+}
+.navbar-toggler{
+    border: none !important;
+}
+.nav-link {
+    color: var(--one-collor)!important;
+}
+.navbar .navbar-nav .nav-link:hover{
+    color: var(--four-collor)!important;
+    font-weight: bold;   
+}
+.logo {
+    width: 200px;
+}
+.nav-icon{
+    color: var(--one-collor);
+    font-size: 23px;
+}
+.nav-icon:hover{
+    color: var(--four-collor)!important;
+}
+.nav-icon:focus{
+    box-shadow: none !important;
+}
+
+.menu-nav {
+    color: var(--one-collor) !important;
+}
+
+ul.menu li a.active {
+    font-weight: bold;
+    color: var(--four-collor) !important;
+}
+/* end */
+
+/* footer css*/
+.footer-wan .medsos {
+    text-align: center;
+}
+.footer-wan .medsos>a {
+    font-size: 30px;
+    width: 36px;
+    height: 36px;
+    line-height: 36px;
+    text-align: center;
+    margin: 0 8px;
+    color: var(--one-collor);
+    opacity: 0.75;
+}
+.footer-wan .medsos>a:hover {
+    color: var(--two-collor);
+}
+/* end */
+
+/* hero css */
+.button-hero {
+    background-color: var(--four-collor);
+    color: var(--one-collor) !important;
+}
+
+.hero {
+    width: 450px;
+}
+.hawan {
+    color: var(--one-collor);
+}
+.parwan {
+    color: var(--four-collor);
+}
+.partu {
+    color: var(--two-collor)
+}
+/* end */
+
+/* keterangan css */
+#keterangan {
+    background-color: var(--four-collor);
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+}
+.hawan-ket {
+    color: var(--one-collor);
+    font-weight: 5rem;
+}
+.jahit {
+    width: 60px;
+}
+.benang {
+    width: 70px;
+}
+/* end */
+
+/* product css */
+#product {
+    background-color: var(--five-collor);
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
+.card {
+    background-color: var(--one-collor);
+    padding: 10px 12px;
+    border-radius: 25px;
+    transform: translateX(0px);
+    transition: 0.3s all;
+}
+.card .cek-img{
+    max-height: 260px;
+    overflow: hidden;
+    border-radius: 20px;
+    
+}
+.img-zoom{
+    transform: translateX(0px);
+    transition: 0.3s all;
+}
+.hampat-product {
+    color: var(--three-collor);
+}
+.h6 {
+    color: var(--one-collor)
+}
+.hatri {
+    color: var(--three-collor);
+    font-weight: bold;
+}
+.hama {
+    color: var(--four-collor);
+    font-weight: bold;
+}
+.p-pro {
+    color: var(--two-collor);
+}
+.button-card  {
+    background-color: var(--seven-collor);
+    color: var(--four-collor)!important;
+    border-radius: 50px;   
+}
+.ap {
+    color: var(--two-collor) !important;
+    font-size: 17px;
+}
+.ap:hover p{
+    color: var(--four-collor);
+}
+.img-zoom:hover {
+    transform: scale(1.1);
+}
+.card:hover{
+    box-shadow: 0px 0px 5px var(--two-collor);
+}
+.button-card:hover{
+    background-color: var(--four-collor);
+    color: var(--seven-collor)!important;
+}
+.button-card:focus{
+    box-shadow: none;
+}
+/* end */
+
+/* store css */
+#store {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
+.hampat-store {
+    color: var(--four-collor)
+}
+.hanam-store {
+    color: var(--four-collor)
+}
+.google-map {
+    width: 100%;
+}
+.map {
+    max-width: 700px;
+}
+.pa {
+    color: var(--two-collor)
+}
+.muappppp {
+    transform: translateX(0px);
+    transition: 0.3s all;
+}
+.muappppp:hover {
+    transform: scale(1.15);
+}
+/* end */
+
+/* contact css */
+#contact {
+    background-color: var(--six-collor);
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
+.hampat-contact {
+    color: var(--one-collor);
+}
+.hanam-contact {
+    color: var(--one-collor);
+}
+.contact .box-contact {
+    text-align: center;
+    padding: 10px 0 10px 0;
+}
+.contact .box-contact i {
+    font-size: 32px;
+    color: var(--four-collor);
+    border-radius: 50%;
+    padding: 2px 8px 2px 8px;
+}
+.contact .box-contact h3 {
+    padding-top: 2px;
+    font-size: 20px;
+    color: var(--one-collor);
+    font-weight: 700px;
+}
+.contact .box-contact p {
+    color: var(--two-collor);
+    font-size: 14px;
+    margin-bottom: 0;
+}
+.contact .email-form {
+    padding: 31px;
+}
+.contact .email-form .form-group {
+    margin-bottom: 20px;
+}
+.contact .email-form input,
+.contact .email-form textarea {
+    box-shadow: none;
+    font-size: 14px;
+}
+.contact .email-form input {
+    padding: 10px 15px;
+}
+.contact .email-form textarea {
+    padding: 12px 15px;
+}
+.button-send {
+    background-color: var(--four-collor);
+    color: var(--one-collor) !important;
+    transition: .2s all;
+}
+.button-send:hover {
+    font-weight: bold;
+}
+.icon:hover {
+    background: var(--three-collor);
+    transition: all ease-in-out .5s;
+}
+/* end */
+
+
+/* footer css */
+.footer-wan {
+    padding-top: 3rem;
+    background-color: var(--three-collor);
+}
+.p-footer {
+    color: var(--two-collor);
+    font-size: 15px;
+    font-weight: lighter;
+}
+.ali {
+    height: 30px;
+
+}
+.hatri-footer {
+    color: var(--four-collor);
+    font-weight: bold;
+    font-size: 22px;
+}
+.footer-wan ul {
+    padding: 0;
+    list-style: none;
+    line-height: 1.6;
+    font-size: 14px;
+    margin-bottom: 0;
+}
+.footer-wan ul a {
+    color: var(--five-collor);
+    text-decoration: none;
+    font-weight: lighter;
+}
+.footer-wan ul a:hover {
+    color: var(--two-collor);
+}
+.footer-wan .medsos {
+    text-align: center;
+}
+.footer-wan .medsos>a {
+    font-size: 30px;
+    width: 36px;
+    height: 36px;
+    line-height: 36px;
+    text-align: center;
+    margin: 0 8px;
+    color: var(--one-collor);
+    opacity: 0.75;
+}
+.footer-wan .medsos>a:hover {
+    color: var(--two-collor);
+}
+
+/* copyright css */
+.copy {
+    background-color: var(--four-collor);
+    color: var(--one-collor);
+}
+
+/* end */
+
+/* ------------------------------------------------ */
+
+/* all produk css */
+#all-produk{
+    background-color: var(--five-collor);
+    padding-top: 5rem;
+}
+/* end */
+
+/* ------------------------------------------------ */
+
+/* cart css */
+#cart{
+    background-color: var(--five-collor);
+    padding-top: 5rem;
+}
+.hanam-cart{
+    /* font-weight: bold; */
+    color: var(--six-collor);
+}
+.hampat-cart{
+    color: var(--four-collor);
+}
+.p-cart{
+    color: var(--six-collor);
+}
+.table-cart tbody tr img {
+    border-radius: 0;
+    max-width: 65px;
+}
+.up-down{
+    max-width: 80px;
+    padding: 0px 9px;
+    position: relative;
+    width: 100%;
+    border-radius: 4px;
+}
+.btn-updown{
+    color: var(--four-collor)!important;
+    font-weight: bold;
+	cursor: pointer;
+}
+.btn-updown:focus{
+    box-shadow: none !important;
+    }
+.input{
+	border: none;
+	padding: 15px 0;
+	width: 30px;
+    height: 30px;
+	text-align: center;
+	font-size: 18px;
+	color:var(--four-collor);
+	margin: 0 10px;
+}
+.trash{
+    color: var(--four-collor)!important;
+    font-weight: bold; 
+    font-size: 25px;
+}
+.next-buy{
+    background-color: var(--four-collor);
+    color: var(--one-collor) !important;
+}
+.next-buy:focus{
+    box-shadow: none !important;
+}
+.next-buy:hover{
+    background-color: var(--seven-collor);
+}
+/* end */
+
+/* ------------------------------------------------ */
+
+/* cart-one css */
+#cart-one{
+    background-color: var(--five-collor);
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+}
+.one-produk {
+    background-color: var(--five-collor);
+    /* padding: 10px 12px; */
+    border-radius: 25px;
+    transform: translateX(0px);
+    transition: 0.5s all;
+}
+.one-produk .cek-img{
+    max-height: 500px;
+    max-width: 500px;
+    overflow: hidden;
+    border-radius: 15px;
+    
+}
+.img-zoom{
+    transform: translateX(0px);
+    transition: 0.3s all;
+}
+.img-zoom:hover {
+    transform: scale(1.1);
+}
+
+.hadwa-pro-one{
+    color: var(--three-collor);
+    font-size: 45px;
+}
+.top-hatpat-pro-one{
+    background-color: var(--one-collor);
+}
+.hatpat-pro-one{
+    color: var(--four-collor);
+    font-weight: bold; 
+}
+.p-pro-one{
+    color:var(--six-collor);
+    font-size: 17px;   
+}
+.text-pro-one{
+    color:var(--four-collor);
+    font-size: 15px; 
+}
+.btn-add-cart{
+    background-color: var(--four-collor);
+    color: var(--one-collor) !important;
+}
+.btn-add-cart:focus{
+    box-shadow: none !important;
+}
+.btn-add-cart:hover{
+    background-color: var(--seven-collor);
+}
+.head-related-produk{
+    color: var(--three-collor);
+}
+/* end */
+
+/* ------------------------------------------------ */
+
+/* account css */
+#account{
+    background-color: var(--five-collor);
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+}
+.menu-ul-account{
+    border: 1px solid var(--seven-collor);
+    border-radius: 9px !important;
+    background-color: var(--one-collor);
+}
+.menu-account{
+    color: var(--four-collor) !important;
+    border-radius: 8px 8px 0px 0px; 
+    padding: 15px;
+    border-bottom: 1px solid var(--seven-collor);
+    
+}
+.b{
+    color: var(--four-collor) !important;
+    border-radius: 0px 0px 0px 0px; 
+    padding: 15px;
+}
+.a{
+    color: var(--four-collor) !important;
+    border-radius: 0px 0px 8px 8px; 
+    padding: 15px;
+    border-bottom: none;   
+}
+.menu-account:hover{
+    color:var(--five-collor)!important;
+    background-color: var(--seven-collor);
+    border-radius: 8px 8px 0px 0px; 
+    padding: 15px;
+}
+.b:hover{
+    color:var(--five-collor)!important;
+    background-color: var(--seven-collor);
+    border-radius: 0px 0px 0px 0px;
+    padding: 15px;
+}
+.a:hover{
+    color:var(--five-collor)!important;
+    background-color: var(--seven-collor);
+    border-radius: 0px 0px 8px 8px; 
+    padding: 15px;
+}
+
+ul.menu-ul-account li a.active {
+    color: var(--one-collor)!important;
+    background-color: var(--four-collor);
+}
+.hallo{
+    font-size: 30px !important;
+    color: var(--four-collor);
+}
+.card-account{
+    background-color: var(--one-collor);
+    border-radius: 10px;
+    border: 1px solid var(--seven-collor);
+}
+.psw{
+    border-top: 1px dashed var(--four-collor);
+}
+.head-account{
+    border-radius: 9px 9px 0px 0px;
+    color: var(--one-collor);
+    font-size: 30px;
+    background-color:var(--four-collor);
+}
+
+.form-control{
+    box-shadow: none !important;
+}
+.button-save{
+    background-color: var(--four-collor);
+    color: var(--one-collor);   
+}
+.button-save:hover{
+    background-color: var(--seven-collor);
+    color: var(--four-collor)!important;
+}
+.button-save:focus{
+    box-shadow: none;
+}
+.edit{
+    text-decoration: none;
+    color: var(--four-collor) !important;
+}
+.edit:hover{
+    text-decoration: none;
+    color: var(--seven-collor) !important;
+}
