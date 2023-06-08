@@ -39,9 +39,73 @@
                                     <td>Rp. 10.000</td>
                                     <td><span class="badge badge-success">Lunas</span></td>
                                     <td>
-                                        <a href="#" class="btn btn-icon icon-left btn-info"><i
-                                                class="fas fa-edit"></i></a>
-                                        <a href="#" class="btn btn-icon icon-left btn-danger"><i
+                                        <a href="#" class="btn btn-icon icon-center btn-info" data-toggle="modal"
+                                            data-target="#modal-edit-part"><i class="fas fa-edit"></i></a>
+
+                                        <!-- Modal -->
+                                        <div class="modal fade" id="modal-edit-part" tabindex="-1" role="dialog"
+                                            aria-labelledby="modal-edit-part-label" aria-hidden="true">
+                                            <div class="modal-dialog" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="modal-edit-part-label">Edit Product
+                                                        </h5>
+                                                        <button type="button" class="close" data-dismiss="modal"
+                                                            aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <form>
+                                                            <div class="card-body">
+                                                                <div class="form-group">
+                                                                    <label>Nama</label>
+                                                                    <input type="text" class="form-control"
+                                                                        placeholder="" required="">
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label>Product</label>
+                                                                    <input type="email" class="form-control"
+                                                                        placeholder="">
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label>Jumlah</label>
+                                                                    <input type="number" class="form-control"
+                                                                        placeholder="">
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label>Harga Satuan</label>
+                                                                    <input type="text" class="form-control"
+                                                                        placeholder="">
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label>Total</label>
+                                                                    <input type="text" class="form-control"
+                                                                        placeholder="">
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label>Status</label>
+                                                                    <div class="form-group">
+                                                                        <select class="form-control">
+                                                                            <option>Lunas</option>
+                                                                            <option>Belum Lunas</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary"
+                                                            data-dismiss="modal">Close</button>
+                                                        <button type="button" class="btn btn-primary"
+                                                            id="btn-submit-product">Submit</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <a href="#" class="btn btn-icon icon-center btn-danger"><i
                                                 class="fas fa-trash"></i></a>
                                     </td>
                                 </tr>

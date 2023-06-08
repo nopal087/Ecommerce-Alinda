@@ -45,7 +45,7 @@
                     </div>
 
                     <div class="">
-                        <a href="cart.html" class="btn rounded-pill px-4 py-2 btn-add-cart">Add to cart <i
+                        <a href="/cart" class="btn rounded-pill px-4 py-2 btn-add-cart">Add to cart <i
                                 class="bi bi-arrow-right"></i></a>
                     </div>
 

@@ -14,7 +14,6 @@
                 <button class="btn btn-primary" data-toggle="modal" data-target="#modal-login-part"><i class="fas fa-plus"></i>
                     Tambah Product</button>
             </div>
-
             <!-- Modal -->
             <div class="modal fade" id="modal-login-part" tabindex="-1" role="dialog"
                 aria-labelledby="modal-login-part-label" aria-hidden="true">
@@ -34,13 +33,17 @@
                                         <input type="text" class="form-control" placeholder="Benang" required="">
                                     </div>
                                     <div class="form-group">
+                                        <label>Deskripsi Product</label>
+                                        <textarea class="form-control" name="deskripsi" id="" cols="30" rows="10" required
+                                            placeholder="Isikan deskripsi tentang produk anda"></textarea>
+                                    </div>
+                                    <div class="form-group">
                                         <label>Harga</label>
                                         <input type="email" class="form-control" placeholder="10.000">
                                     </div>
                                     <div class="form-group">
-                                        <label>Deskripsi Product</label>
-                                        <textarea class="form-control" name="deskripsi" id="" cols="30" rows="10" required
-                                            placeholder="Isikan deskripsi tentang produk anda"></textarea>
+                                        <label>Stok Product</label>
+                                        <input type="number" class="form-control" placeholder="">
                                     </div>
                                     <div class="form-group">
                                         <label>Foto Product</label>
@@ -75,27 +78,30 @@
                                     <th scope="col">Nama Produk</th>
                                     <th scope="col">Deskripsi</th>
                                     <th scope="col">Harga</th>
+                                    <th scope="col">Stok Produk</th>
                                     <th scope="col">Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
                                     <th scope="row">1</th>
+                                    <td><img src="{{ asset('img/1.jpg') }}" class="img-fluid" width="100" height="200">
+                                    </td>
                                     <td>Benang</td>
+                                    <td>Benang Merah Problematika di Indonesia</td>
                                     <td>Rp. 150.000</td>
-                                    <td>1</td>
-                                    <td>Rp. 150.000</td>
+                                    <td>69</td>
                                     <td>
-                                        <a href="#" class="btn btn-icon icon-center btn-info"><i
-                                                class="fas fa-edit"></i></a>
+                                        <a href="#" class="btn btn-icon icon-center btn-info" data-toggle="modal"
+                                            data-target="#modal-edit-part"><i class="fas fa-edit"></i></a>
 
                                         <!-- Modal -->
-                                        <div class="modal fade" id="modal-login-part" tabindex="-1" role="dialog"
-                                            aria-labelledby="modal-login-part-label" aria-hidden="true">
+                                        <div class="modal fade" id="modal-edit-part" tabindex="-1" role="dialog"
+                                            aria-labelledby="modal-edit-part-label" aria-hidden="true">
                                             <div class="modal-dialog" role="document">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
-                                                        <h5 class="modal-title" id="modal-login-part-label">Tambah Product
+                                                        <h5 class="modal-title" id="modal-edit-part-label">Edit Product
                                                         </h5>
                                                         <button type="button" class="close" data-dismiss="modal"
                                                             aria-label="Close">
@@ -111,14 +117,19 @@
                                                                         placeholder="Benang" required="">
                                                                 </div>
                                                                 <div class="form-group">
+                                                                    <label>Deskripsi Product</label>
+                                                                    <textarea class="form-control" name="deskripsi" id="" cols="30" rows="10" required
+                                                                        placeholder="Isikan deskripsi tentang produk anda"></textarea>
+                                                                </div>
+                                                                <div class="form-group">
                                                                     <label>Harga</label>
                                                                     <input type="email" class="form-control"
                                                                         placeholder="10.000">
                                                                 </div>
                                                                 <div class="form-group">
-                                                                    <label>Deskripsi Product</label>
-                                                                    <textarea class="form-control" name="deskripsi" id="" cols="30" rows="10" required
-                                                                        placeholder="Isikan deskripsi tentang produk anda"></textarea>
+                                                                    <label>Stok Product</label>
+                                                                    <input type="number" class="form-control"
+                                                                        placeholder="">
                                                                 </div>
                                                                 <div class="form-group">
                                                                     <label>Foto Product</label>
@@ -141,6 +152,7 @@
                                                 </div>
                                             </div>
                                         </div>
+
                                         <a href="#" class="btn btn-icon icon-center btn-danger"><i
                                                 class="fas fa-trash"></i></a>
                                     </td>
