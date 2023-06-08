@@ -46,3 +46,6 @@ Route::get('/Transaksi', function () {
 Route::get('/Product', function () {
     return view('admin/product');
 });
+Route::get('/Pesanan', function () {
+    return view('admin/pesanan');
+});

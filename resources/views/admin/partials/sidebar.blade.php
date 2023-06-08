@@ -9,7 +9,7 @@
         <ul class="sidebar-menu">
             <li class="menu-header">Dashboard</li>
             <li>
-                <a href="#" class="nav-link">
+                <a href="/dashboard" class="nav-link">
                     <i class="fas fa-tachometer-alt"></i><span>Dashboard</span>
                 </a>
             </li>
@@ -20,11 +20,11 @@
                     <span>Transaksi</span></a>
             </li>
             <li>
-                <a class="nav-link" href="#"><i class="fas fa-shopping-bag"></i></i>
+                <a class="nav-link" href="/Product"><i class="fas fa-shopping-bag"></i></i>
                     <span>Product</span></a>
             </li>
             <li>
-                <a class="nav-link" href="#"><i class="fas fa-people-carry"></i></i>
+                <a class="nav-link" href="/Pesanan"><i class="fas fa-people-carry"></i></i>
                     <span>Pesanan</span></a>
             </li>
         </ul>

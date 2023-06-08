@@ -27,35 +27,27 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                            <form class="modal-part" id="form-tambah-product">
-                                <p>This login form is taken from elements with <code>#modal-login-part</code> id.</p>
-                                <div class="form-group">
-                                    <label>Username</label>
-                                    <div class="input-group">
-                                        <div class="input-group-prepend">
-                                            <div class="input-group-text">
-                                                <i class="fas fa-envelope"></i>
-                                            </div>
-                                        </div>
-                                        <input type="text" class="form-control" placeholder="Email" name="email">
+                            <form>
+                                <div class="card-body">
+                                    <div class="form-group">
+                                        <label>Nama Product</label>
+                                        <input type="text" class="form-control" placeholder="Benang" required="">
                                     </div>
-                                </div>
-                                <div class="form-group">
-                                    <label>Password</label>
-                                    <div class="input-group">
-                                        <div class="input-group-prepend">
-                                            <div class="input-group-text">
-                                                <i class="fas fa-lock"></i>
-                                            </div>
-                                        </div>
-                                        <input type="password" class="form-control" placeholder="Password" name="password">
+                                    <div class="form-group">
+                                        <label>Harga</label>
+                                        <input type="email" class="form-control" placeholder="10.000">
                                     </div>
-                                </div>
-                                <div class="form-group mb-0">
-                                    <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" name="remember" class="custom-control-input"
-                                            id="remember-me">
-                                        <label class="custom-control-label" for="remember-me">Remember Me</label>
+                                    <div class="form-group">
+                                        <label>Deskripsi Product</label>
+                                        <textarea class="form-control" name="deskripsi" id="" cols="30" rows="10" required
+                                            placeholder="Isikan deskripsi tentang produk anda"></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Foto Product</label>
+                                        <div class="custom-file ">
+                                            <input type="file" class="custom-file-input" id="customFile">
+                                            <label class="custom-file-label" for="customFile">Choose file</label>
+                                        </div>
                                     </div>
                                 </div>
                             </form>
