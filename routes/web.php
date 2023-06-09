@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\ProdukController;
+use App\Http\Controllers\UserProdukController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -52,3 +54,13 @@ Route::get('/Pesanan', function () {
 Route::get('/checkout', function () {
     return view('User/checkout');
 });
+
+
+Route::get('/Product', [ProdukController::class, 'Produk']);
+Route::get('/Product/create', [ProdukController::class, 'create']);
+Route::post('/Product/store', [ProdukController::class, 'store']);
+Route::get('/Product/{id}/edit', [Sellerontroller::class, 'edit']);
+Route::put('/Product/{id}', [ProdukController::class, 'update']);
+Route::delete('/Product/{id}', [ProdukController::class, 'delete']);
+
+Route::get('/all-product', [UserProdukController::class, 'UserProduk']);
