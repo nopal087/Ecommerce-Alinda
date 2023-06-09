@@ -63,4 +63,5 @@ Route::get('/Product/{id}/edit', [Sellerontroller::class, 'edit']);
 Route::put('/Product/{id}', [ProdukController::class, 'update']);
 Route::delete('/Product/{id}', [ProdukController::class, 'delete']);
 
-Route::get('/all-product', [UserProdukController::class, 'UserProduk']);
+Route::get('/all-product', [UserProdukController::class, 'UserProduk']); //untuk menampilkan semua produk pada halaman all-product
+Route::get('/', [UserProdukController::class, 'previewProduk']); //untuk menampilkan preview produk pada halaman index

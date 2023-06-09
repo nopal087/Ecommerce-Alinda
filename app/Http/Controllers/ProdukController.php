@@ -9,7 +9,7 @@ class ProdukController extends Controller
 {
     public function Produk(Request $request)
     {
-        $data = Produk::all();
+        $data = Produk::latest()->get();
         return view('admin.product', compact('data'));
     }
 

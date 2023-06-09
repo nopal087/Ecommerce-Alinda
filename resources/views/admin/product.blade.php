@@ -50,11 +50,20 @@
                                     <div class="form-group">
                                         <label>Foto Product</label>
                                         <div class="custom-file">
-                                            <label class="custom-file-label" for="customFile">Choose file</label>
+                                            <label class="custom-file-label" for="customFile" id="fileNameLabel">Choose
+                                                file</label>
                                         </div>
                                         <input type="file" class="custom-file-input" id="customFile" name="foto_produk"
-                                            accept="image/*">
+                                            accept="image/*" onchange="updateFileNameLabel()">
                                     </div>
+                                    {{-- javascript digunakan untuk menampilkan nama file ketika file diupload --}}
+                                    <script>
+                                        function updateFileNameLabel() {
+                                            var fileName = document.getElementById("customFile").files[0].name;
+                                            document.getElementById("fileNameLabel").innerHTML = fileName;
+                                        }
+                                    </script>
+                                    {{-- end script --}}
                                 </div>
                         </div>
                         <div class="modal-footer">
@@ -93,7 +102,7 @@
                                                 width="100" height="200"></td>
                                         <td>{{ $item->nama_produk }}</td>
                                         <td>{{ $item->deskripsi_produk }}</td>
-                                        <td>{{ $item->harga_produk }}</td>
+                                        <td>{{ number_format($item->harga_produk) }}</td>
                                         <td>{{ $item->stok_produk }}</td>
                                         <td>
 
@@ -157,19 +166,22 @@
                                                                                     <img
                                                                                         class="img-preview img-fluid mb-3 col-sm-5">
                                                                                 @endif
-                                                                                <div class="custom-file ">
+                                                                                <div class="custom-file">
                                                                                     <input type="file"
                                                                                         class="custom-file-input"
                                                                                         name="foto_produk"
-                                                                                        accept="image/*" id="customFile">
+                                                                                        accept="image/*" id="customFile"
+                                                                                        onchange="updateFileNameLabel()">
                                                                                     <label class="custom-file-label"
-                                                                                        for="customFile">
+                                                                                        for="customFile"
+                                                                                        id="fileNameLabel">
                                                                                         @if ($item->foto_produk)
                                                                                             <small>Gambar Terpakai:
                                                                                                 {{ $item->foto_produk }}</small>
                                                                                         @endif
                                                                                     </label>
                                                                                 </div>
+
                                                                             </div>
                                                                         </div>
                                                                 </div>
@@ -198,7 +210,7 @@
                                                             aria-labelledby="myLargeModalLabel" aria-hidden="true">
                                                             <div class="modal-dialog modal-sm">
                                                                 <div class="modal-content d-flex justify-content-center">
-                                                                    <i class="fas fa-exclamation-circle fa-lg"></i>
+                                                                    {{-- <i class="fas fa-exclamation-circle fa-lg"></i> --}}
                                                                     <p>Apakah anda yakin untuk menghapus?</p>
                                                                     <div
                                                                         class="modal-footer p-2 justify-content-center d-flex">

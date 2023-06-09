@@ -34,8 +34,9 @@
                             <p class="p-pro card-text mb-4 hide lh-sm">{{ $item->deskripsi_produk }}
                             </p>
                             <div class="card-mbuh d-flex justify-content-between">
-                                <p class="hama my-auto">{{ $item->harga_produk }}</p>
-                                <a href="/cart" class="btn button-card"><i class="bi bi-bag-plus"></i></a>
+                                <p class="hama my-auto">Rp. {{ number_format($item->harga_produk) }}</p>
+                                <a href="/cart/{{ $item->id }}" class="btn button-card"><i
+                                        class="bi bi-bag-plus"></i></a>
                             </div>
                         </div>
                     </div>
