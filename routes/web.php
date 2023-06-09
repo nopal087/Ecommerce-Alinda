@@ -49,3 +49,6 @@ Route::get('/Product', function () {
 Route::get('/Pesanan', function () {
     return view('admin/pesanan');
 });
+Route::get('/checkout', function () {
+    return view('User/checkout');
+});

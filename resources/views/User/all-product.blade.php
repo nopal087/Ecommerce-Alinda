@@ -10,6 +10,13 @@
         <h6 class="text-center mb-5">
             Available for all your needs
         </h6>
+        <div class="pt-3 pb-5 px-lg-5">
+            <form class="d-flex">
+                <input class="form-control me-2 rounded-pill" type="search" placeholder="cari produk disini"
+                    aria-label="Search">
+                <button class="btn btn-search rounded-pill" type="submit"><i class="bi bi-search"></i></button>
+            </form>
+        </div>
         <div class="row">
             <div class="col-sm-6 col-md-4 col-lg-3 mb-3">
                 <div class="card mb-3" data-aos="zoom-in" data-aos-duration="2000">

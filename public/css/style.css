@@ -384,6 +384,18 @@ ul.menu li a.active {
     background-color: var(--five-collor);
     padding-top: 5rem;
 }
+.btn-search{
+    background-color: var(--four-collor);
+}
+.bi-search{
+    color: var(--one-collor) !important;
+}
+.btn-search:focus{
+    box-shadow: none !important;
+}
+.btn-search:hover{
+    background-color: var(--seven-collor);
+}
 /* end */
 
 /* ------------------------------------------------ */
@@ -510,6 +522,79 @@ ul.menu li a.active {
 }
 .head-related-produk{
     color: var(--three-collor);
+}
+/* end */
+
+/* ------------------------------------------------ */
+
+/* checkout css */
+.chekk{
+    background-color: var(--five-collor);
+}
+.form-group{
+    margin-bottom: 1rem;
+}
+.form-control{
+    box-shadow: none !important;
+}
+.input:focus{
+    outline: 0 !important;
+}
+.head-check-out{
+    color: var(--four-collor);
+}
+.input-1{
+    border: 1px solid var(--seven-collor);
+    height: 43px;
+    padding-left: 20px;
+    font-size: 13px;
+    width: 100%;
+}
+.input-2{
+    border: 1px solid var(--seven-collor);
+    font-size: 13px;
+    width: 100%;
+}
+.form-select{
+    border: 1px solid var(--seven-collor);
+    height: 43px;
+    box-shadow: none !important;
+    padding-left: 20px;
+    font-size: 13px;
+    width: 100%;
+}
+.order-tot {
+    border: 1px solid #e2e9e1;
+    background-color: var(--one-collor);
+    padding: 30px;
+    border-radius: 10px;
+}
+.img-checkout{
+    max-width: 80px !important;
+}
+.ndasji{
+    font-size: 15px;
+    font-weight: bold;
+    color: var(--four-collor);
+}
+.table-bordered{
+    border-style: 1px solid;
+    border-color: var(--seven-collor);
+}
+.tot{
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--four-collor);
+}
+.bayar{
+    background-color: var(--four-collor);
+    color: var(--one-collor) !important;
+}
+.bayar:focus{
+    box-shadow: none !important;
+}
+.bayar:hover{
+    background-color: var(--seven-collor);
 }
 /* end */
 

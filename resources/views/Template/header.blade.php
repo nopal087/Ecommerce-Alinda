@@ -13,7 +13,7 @@
     <!-- link CSS  -->
     <link rel="stylesheet" href="css/style.css" />
     <!-- logo title bar -->
-    <link rel="icon" href="assets/img/logo_alinda.png" type="image/x-icon" />
+    <link rel="icon" href="{{ asset('img/logo_alinda.png') }}" type="image/x-icon" />
     <!-- AOS animasi -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
