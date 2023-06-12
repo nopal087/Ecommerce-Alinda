@@ -20,7 +20,7 @@
                     cocok untuk Anda!
                 </p>
                 <div class="mt-5">
-                    <a href="all-produk.html" class="btn button-hero btn-lg rounded-pill" data-aos="fade-up-right"
+                    <a href="/all-product" class="btn button-hero btn-lg rounded-pill" data-aos="fade-up-right"
                         data-aos-duration="3000">start to buy <i class="bi bi-arrow-right my-auto"></i></a>
                 </div>
             </div>
@@ -64,7 +64,7 @@
                     <div class="card mb-3" data-aos="zoom-in" data-aos-duration="2000">
                         <div class="cek-img">
                             <div class="img-zoom">
-                                <a href="/detail-product" class=" text-decoration-none">
+                                <a href="/detail-product/{{ $item->id }}" class=" text-decoration-none">
                                     <img src="{{ asset('store/' . $item->foto_produk) }}" class="card-img-top"
                                         alt="...">
                                 </a>

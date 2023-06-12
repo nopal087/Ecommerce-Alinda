@@ -10,22 +10,32 @@
         <h6 class="text-center mb-5">
             Available for all your needs
         </h6>
-        <div class="pt-3 pb-5 px-lg-5">
+        {{-- <div class="pt-3 pb-5 px-lg-5">
             <form class="d-flex">
                 <input class="form-control me-2 rounded-pill" type="search" placeholder="cari produk disini"
                     aria-label="Search">
                 <button class="btn btn-search rounded-pill" type="submit"><i class="bi bi-search"></i></button>
             </form>
+        </div> --}}
+
+        <div class="pt-3 pb-5 px-lg-5">
+            <form class="d-flex" action="{{ route('produk.search') }}" method="GET">
+                <input class="form-control me-2 rounded-pill" type="search" name="keyword"
+                    placeholder="cari produk disini" aria-label="Search">
+                <button class="btn btn-search rounded-pill" type="submit"><i class="bi bi-search"></i></button>
+            </form>
         </div>
+
+
         <div class="row">
             @foreach ($data as $item)
                 <div class="col-sm-6 col-md-4 col-lg-3 mb-3">
                     <div class="card mb-3" data-aos="zoom-in" data-aos-duration="2000">
                         <div class="cek-img">
                             <div class="img-zoom">
-                                <a href="/detail-product" class=" text-decoration-none">
+                                <a href="/detail-product/{{ $item->id }}" class=" text-decoration-none">
                                     <img src="{{ asset('store/' . $item->foto_produk) }}" class="card-img-top"
-                                        alt="...">
+                                        alt="foto_produk">
                                 </a>
                             </div>
                         </div>
