@@ -76,7 +76,11 @@
                         </div>
                         <div class="card-body">
                             <h5 class="hatri">{{ $item->nama_produk }}</h5>
-                            <p class="p-pro card-text mb-4 hide lh-sm">{{ $item->deskripsi_produk }}</p>
+                            <p class="p-pro card-text mb-4 hide lh-sm">
+                                {{ substr($item->deskripsi_produk, 0, 50) . '...' }}
+                                <a href="/detail-product/{{ $item->id }}" class="text-decoration-none">Lihat
+                                    Selengkapnya</a>
+                            </p>
                             <div class="card-mbuh d-flex justify-content-between">
                                 <p class="hama my-auto">Rp.{{ number_format($item->harga_produk) }}-</p>
                                 <a href="/cart" class="btn button-card"><i class="bi bi-bag-plus"></i></a>
