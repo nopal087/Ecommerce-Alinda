@@ -72,7 +72,7 @@ Route::get('/all-product', [UserProdukController::class, 'UserProduk']); //untuk
 Route::get('/', [UserProdukController::class, 'previewProduk']);
 
 //untuk menampilkan relate produk pada halaman detailproduct
-Route::get('//detail-product/{id}', [UserProdukController::class, 'relateProduk']);
+Route::get('/detail-product/{id}', [UserProdukController::class, 'relateProduk']);
 
 // Menampilkan halaman detail produk berdasarkan ID
 Route::get('/detail-product/{id}', [UserProdukController::class, 'detailProduk']);
