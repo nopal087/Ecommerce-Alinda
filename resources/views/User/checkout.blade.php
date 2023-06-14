@@ -14,15 +14,17 @@
                     <form>
                         <div class="form-group">
                             <h6>Nama <span class="head-check-out">*</span></h6>
-                            <input type="text" class="form-control input-1" placeholder="Nama lengkap">
+                            <input type="text" value="{{ Auth::user()->name }}" class="form-control input-1"
+                                placeholder="Nama lengkap">
                         </div>
                         <div class="form-group">
                             <h6>Nomor Telephone <span class="head-check-out">*</span></h6>
-                            <input type="text" class="form-control input-1" placeholder="Nomor Telp. / WA">
+                            <input type="text" value="{{ Auth::user()->nohp }}" class="form-control input-1"
+                                placeholder="Nomor Telp. / WA">
                         </div>
                         <div class="form-group">
                             <h6>Alamat <span class="head-check-out">*</span></h6>
-                            <textarea class="form-control input-2" placeholder="Alamat lengkap dan detail" rows="5"></textarea>
+                            <textarea class="form-control input-2" placeholder="Alamat lengkap dan detail" rows="5">{{ Auth::user()->alamat }}</textarea>
                         </div>
                         <div class="form-group">
                             <h6>Pilih Provinsi <span class="head-check-out">*</span></h6>
@@ -75,34 +77,39 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>
-                                            <figure class="justify-content-evenly">
-                                                <img src="{{ asset('img/1.jpg') }}"
-                                                    class="img-checkout img-fluid rounded">
-                                                <figcaption class="figure-caption">
-                                                    <a href="produk-one.html" class="text-decoration-none">
-                                                        <span class="ndasji">Benang Jahit</span></a>
-                                                </figcaption>
-                                            </figure>
-                                        </td>
-                                        <td>
-                                            <span>1</span>
-                                        </td>
-                                        <td>Rp 500.000</td>
-                                    </tr>
-                                    <tr>
-                                        <th>SubTotal</th>
-                                        <td colspan="2">Rp 500.000</td>
-                                    </tr>
-                                    <tr>
-                                        <th>Ongkir</th>
-                                        <td colspan="2">Rp 20.000</td>
-                                    </tr>
-                                    <tr>
-                                        <th>Total</th>
-                                        <td colspan="2"><span class="tot">Rp 520.000</span></td>
-                                    </tr>
+                                    @foreach ($cart as $productId => $data)
+                                        <tr>
+                                            <td>
+                                                <figure class="justify-content-evenly">
+                                                    <img src="{{ asset('store/' . $data['foto_produk']) }}"
+                                                        class="figure-img img-fluid rounded" width="30%"
+                                                        alt="gambar produk">
+                                                    <figcaption class="figure-caption">
+                                                        <a href="produk-one.html" class="text-decoration-none">
+                                                            <span class="ndasji">{{ $data['nama_produk'] }}</span>
+                                                        </a>
+                                                    </figcaption>
+                                                </figure>
+                                            </td>
+                                            <td>
+                                                <span>{{ $data['jumlah'] }}</span>
+                                            </td>
+                                            <td>Rp {{ number_format($data['harga_produk']) }}-</td>
+                                        </tr>
+
+                                        <tr>
+                                            <th>SubTotal</th>
+                                            <td colspan="2">Rp 500.000</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Ongkir</th>
+                                            <td colspan="2">Rp 20.000</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Total</th>
+                                            <td colspan="2"><span class="tot">Rp 520.000</span></td>
+                                        </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>

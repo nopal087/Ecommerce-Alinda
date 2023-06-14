@@ -9,31 +9,43 @@
             </div>
 
             <div class="col-lg-6 mt-lg-5">
-                <form class="p-4 form-log-sign">
+                <form class="p-4 form-log-sign" method="POST" action="{{ route('registrasi_action') }}">
+                    @csrf
                     <h3>Sign Up</h3>
                     <p>Registrasi terlebih dahulu</p>
                     <div class="mb-2">
-                        <input type="username" class="form-control" placeholder="Username">
+                        <input type="text" name="name" class="form-control" value="{{ old('name') }}"
+                            placeholder="Username" required>
                     </div>
                     <div class="mb-2">
-                        <input type="email" class="form-control" placeholder="Email">
+                        <input type="email" name="email" value="{{ old('email') }}" class="form-control"
+                            placeholder="Email" required>
                     </div>
                     <div class="mb-2">
-                        <input type="nohp" class="form-control" placeholder="Nomor Hp">
+                        <input type="text" name="nohp" value="{{ old('nohp') }}" class="form-control"
+                            placeholder="Nomor Hp" required>
+                    </div>
+                    <div class="mb-2">
+                        <input type="text" name="alamat" value="{{ old('alamat') }}" class="form-control"
+                            placeholder="Alamat" required>
                     </div>
                     <div class="mb-4">
-                        <input type="password" class="form-control" placeholder="Password">
+                        <input type="password" name="password" class="form-control" placeholder="Password" required>
                     </div>
-
+                    <div class="mb-4">
+                        <input type="hidden" name="role" value="user" class="form-control" placeholder="role"
+                            required>
+                    </div>
                     <div class="checkbox mb-3">
                         <button class="w-100 btn button-log-sign px-5 rounded-pill" type="submit">Sign Up</button>
                         <p class="text-center mt-2">Sudah punya akun?
-                            <a href="login.html" class="cek text-decoration-none">Log In</a>
+                            <a href="{{ route('login') }}" class="cek text-decoration-none">Log In</a>
                         </p>
                     </div>
                 </form>
             </div>
         </div>
+    </div>
     </div>
     <!-- section login end-->
 

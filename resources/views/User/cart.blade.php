@@ -28,11 +28,11 @@
                                     <tr>
                                         <td class="align-middle">
                                             <figure class="pt-4 figure d-flex justify-content-evenly">
-                                                <img src="{{ asset('store/' . $data->foto_produk) }}"
+                                                <img src="{{ asset('store/' . $data['foto_produk']) }}"
                                                     class="figure-img img-fluid rounded" alt="gambar produk">
                                                 <figcaption class="figure-caption">
                                                     <a href="produk-one.html" class="text-decoration-none">
-                                                        <h4 class="hampat-cart">{{ $data->nama_produk }}</h4>
+                                                        <h4 class="hampat-cart">{{ $data['nama_produk'] }}</h4>
                                                     </a>
                                                     <p class="p-cart">Barang yang kami jual merupakan produk dari toko
                                                         kami
@@ -42,14 +42,14 @@
                                         </td>
 
                                         <td class="align-middle">
-                                            <span>Rp.{{ number_format($data->harga_produk) }},-</span>
+                                            <span>Rp.{{ number_format($data['harga_produk']) }},-</span>
                                         </td>
 
                                         <td class="align-middle">
                                             <div class="up-down m-auto">
                                                 <button class="btn btn-sm btn-updown" id="add">+</button>
                                                 <input class="border input rounded-3" type="text" id="qtyBox"
-                                                    readonly="" value="{{ $data->jumlah }}">
+                                                    readonly="" value="{{ $data['jumlah'] }}">
                                                 <button class="btn btn-sm btn-updown" id="sub">-</button>
                                             </div>
                                         </td>
@@ -69,7 +69,7 @@
                         </table>
                     </div>
                     <div class="cart-action py-5 text-end">
-                        <a href="#" class="btn rounded-pill px-4 py-2 next-buy">Beli sekarang <i
+                        <a href="/checkout" class="btn rounded-pill px-4 py-2 next-buy">Beli sekarang <i
                                 class="bi bi-arrow-right"></i></a>
                     </div>
                 </div>

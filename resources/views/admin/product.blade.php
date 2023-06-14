@@ -95,6 +95,11 @@
                                 </tr>
                             </thead>
                             <tbody>
+
+                                @php
+                                    $data = App\Models\Produk::all(); // Contoh mendapatkan data dari model Produk
+                                @endphp
+
                                 @foreach ($data as $item)
                                     <tr>
                                         <th scope="row">{{ $loop->iteration }}</th>

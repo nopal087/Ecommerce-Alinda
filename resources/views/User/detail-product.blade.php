@@ -51,10 +51,14 @@
                         <input type="hidden" name="foto_produk" value="{{ $produk->foto_produk }}">
                         <input type="hidden" name="nama_produk" value="{{ $produk->nama_produk }}">
                         <input type="hidden" name="harga_produk" value="{{ $produk->harga_produk }}">
-                        <button type="submit" class="btn rounded-pill px-4 py-2 btn-add-cart">Add to cart <i
-                                class="bi bi-arrow-right"></i></button>
+                        @auth
+                            <button type="submit" class="btn rounded-pill px-4 py-2 btn-add-cart">Add to cart <i
+                                    class="bi bi-arrow-right"></i></button>
+                        @else
+                            <a href="{{ route('login') }}" class="btn rounded-pill px-4 py-2 btn-add-cart">Login to Add to
+                                Cart</a>
+                        @endauth
                     </form>
-
                 </div>
             </div>
 

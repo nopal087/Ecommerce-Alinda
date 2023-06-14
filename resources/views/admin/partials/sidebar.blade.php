@@ -27,6 +27,13 @@
                 <a class="nav-link" href="/Pesanan"><i class="fas fa-people-carry"></i></i>
                     <span>Pesanan</span></a>
             </li>
+            @if (Auth::check() && Auth::user()->hasRole('pemilik'))
+                <li>
+                    <a class="nav-link" href="/pengguna">
+                        <i class="fas fa-user"></i><span>Pengguna</span>
+                    </a>
+                </li>
+            @endif
         </ul>
     </aside>
 </div>
