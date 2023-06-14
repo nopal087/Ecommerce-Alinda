@@ -26,40 +26,43 @@
                             <h6>Alamat <span class="head-check-out">*</span></h6>
                             <textarea class="form-control input-2" placeholder="Alamat lengkap dan detail" rows="5">{{ Auth::user()->alamat }}</textarea>
                         </div>
-                        <div class="form-group">
-                            <h6>Pilih Provinsi <span class="head-check-out">*</span></h6>
-                            <select class="form-select">
-                                <option selected>Pilih Provinsi</option>
-                                <option value="1">Jawa Barat</option>
-                                <option value="2">Jawa Tengah</option>
-                                <option value="3">Jawa Timur</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <h6>Pilih Kota <span class="head-check-out">*</span></h6>
-                            <select class="form-select">
-                                <option selected>Pilih Kota</option>
-                                <option value="1">Solo</option>
-                                <option value="2">Sukoharjo</option>
-                                <option value="3">Semarang</option>
-                            </select>
-                        </div>
-                    </form>
+                        <form>
+                            <div class="form-group">
+                                <h6>Pilih Provinsi <span class="head-check-out">*</span></h6>
+                                <select class="form-select" name="province">
+                                    <option selected disabled>Pilih Provinsi</option>
+                                    @foreach ($provinces as $province)
+                                        <option value="{{ $province['province_id'] }}">{{ $province['province'] }}
+                                        </option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <h6>Pilih Kota <span class="head-check-out">*</span></h6>
+                                <select class="form-select" name="city">
+                                    <option selected disabled>Pilih Kota</option>
+                                    @foreach ($cities as $city)
+                                        <option value="{{ $city['city_id'] }}">{{ $city['city_name'] }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </form>
 
-                    <div class="mt-5 mb-3">
-                        <h4 class="head-check-out">Pengiriman</h4>
-                    </div>
-                    <form>
-                        <div class="form-group">
-                            <h6>Pilih Ekspedisi <span class="head-check-out">*</span></h6>
-                            <select class="form-select">
-                                <option selected>Pilih Salah Satu</option>
-                                <option value="1">JNE</option>
-                                <option value="2">Tiki</option>
-                                <option value="3">Pos Indonesia</option>
-                            </select>
+                        {{-- <div class="mt-5 mb-3">
+                            <h4 class="head-check-out">Pengiriman</h4>
                         </div>
-                    </form>
+                        <form>
+                            <div class="form-group">
+                                <h6>Pilih Ekspedisi <span class="head-check-out">*</span></h6>
+                                <select class="form-select" name="courier">
+                                    <option selected disabled>Pilih Salah Satu</option>
+                                    @foreach ($couriers as $courier)
+                                        <option value="{{ $courier['code'] }}">{{ $courier['name'] }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </form> --}}
+
                 </div>
 
                 <div class="col-md-6">
@@ -99,15 +102,15 @@
 
                                         <tr>
                                             <th>SubTotal</th>
-                                            <td colspan="2">Rp 500.000</td>
+                                            <td colspan="2">Rp belum dikoding</td>
                                         </tr>
                                         <tr>
                                             <th>Ongkir</th>
-                                            <td colspan="2">Rp 20.000</td>
+                                            <td colspan="2">Rp belum dikoding</td>
                                         </tr>
                                         <tr>
                                             <th>Total</th>
-                                            <td colspan="2"><span class="tot">Rp 520.000</span></td>
+                                            <td colspan="2"><span class="tot">Rp belum dikoding</span></td>
                                         </tr>
                                     @endforeach
                                 </tbody>
