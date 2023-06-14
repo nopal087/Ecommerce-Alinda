@@ -80,6 +80,10 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @php
+                                        $subtotal = 0;
+                                    @endphp
+
                                     @foreach ($cart as $productId => $data)
                                         <tr>
                                             <td>
@@ -97,23 +101,27 @@
                                             <td>
                                                 <span>{{ $data['jumlah'] }}</span>
                                             </td>
-                                            <td>Rp {{ number_format($data['harga_produk']) }}-</td>
+                                            <td>Rp {{ number_format($data['harga_produk'] * $data['jumlah']) }}-</td>
                                         </tr>
-
-                                        <tr>
-                                            <th>SubTotal</th>
-                                            <td colspan="2">Rp belum dikoding</td>
-                                        </tr>
-                                        <tr>
-                                            <th>Ongkir</th>
-                                            <td colspan="2">Rp belum dikoding</td>
-                                        </tr>
-                                        <tr>
-                                            <th>Total</th>
-                                            <td colspan="2"><span class="tot">Rp belum dikoding</span></td>
-                                        </tr>
+                                        @php
+                                            $subtotal += $data['harga_produk'] * $data['jumlah'];
+                                        @endphp
                                     @endforeach
+
+                                    <tr>
+                                        <th>SubTotal</th>
+                                        <td colspan="2">Rp {{ number_format($subtotal) }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Ongkir</th>
+                                        <td colspan="2">Rp belum dikoding</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Total</th>
+                                        <td colspan="2"><span class="tot">Rp belum dikoding</span></td>
+                                    </tr>
                                 </tbody>
+
                             </table>
                         </div>
 

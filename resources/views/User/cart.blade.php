@@ -35,8 +35,7 @@
                                                         <h4 class="hampat-cart">{{ $data['nama_produk'] }}</h4>
                                                     </a>
                                                     <p class="p-cart">Barang yang kami jual merupakan produk dari toko
-                                                        kami
-                                                    </p>
+                                                        kami</p>
                                                 </figcaption>
                                             </figure>
                                         </td>
@@ -55,7 +54,7 @@
                                         </td>
 
                                         <td class="align-middle">
-                                            <span>Rp.Belum dibuat kodenya,-</span>
+                                            <span>Rp {{ number_format($data['harga_produk'] * $data['jumlah']) }}</span>
                                         </td>
 
                                         <td class="align-middle">
@@ -65,6 +64,26 @@
                                         </td>
                                     </tr>
                                 @endforeach
+
+                                @php
+                                    $totalHarga = 0;
+                                @endphp
+
+                                @foreach ($cartItems as $data)
+                                    @php
+                                        $totalHarga += $data['harga_produk'] * $data['jumlah'];
+                                    @endphp
+                                @endforeach
+
+                                <tr>
+                                    <td colspan="3" class="text-end">
+                                        <strong>Total Harga:</strong>
+                                    </td>
+                                    <td colspan="2">
+                                        <span>Rp {{ number_format($totalHarga) }}</span>
+                                    </td>
+                                </tr>
+
                             </tbody>
                         </table>
                     </div>

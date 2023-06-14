@@ -73,6 +73,7 @@ class CartController extends Controller
         $namaProduk = $request->input('nama_produk');
         $hargaProduk = $request->input('harga_produk');
         $fotoProduk = $request->input('foto_produk');
+        $quantity = $request->input('jumlah');
 
         // Mendapatkan keranjang saat ini dari sesi pengguna
         $cart = session()->get('cart', []);
@@ -81,6 +82,8 @@ class CartController extends Controller
         if (isset($cart[$productId])) {
             // Jika produk sudah ada di keranjang, tingkatkan jumlahnya
             $cart[$productId]['jumlah']++;
+            // Jika produk sudah ada di keranjang, tingkatkan jumlahnya
+            // $cart[$productId]['quantity'] += $quantity;
         } else {
             // Jika produk belum ada di keranjang, buat entri baru
             $cart[$productId] = [
@@ -88,6 +91,7 @@ class CartController extends Controller
                 'nama_produk' => $namaProduk,
                 'harga_produk' => $hargaProduk,
                 'foto_produk' => $fotoProduk,
+                'quantity' => $quantity,
                 'jumlah' => 1
             ];
 
@@ -167,6 +171,10 @@ class CartController extends Controller
             // Decode the JSON response and extract the cities data
             $responseDataCities = json_decode($responseCities->getBody(), true);
             $cities = $responseDataCities['rajaongkir']['results'];
+
+
+
+
 
             // Pass the provinces data to the view
             return view('User.checkout', compact('cart', 'provinces', 'cities'));
