@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\PemilikController;
 use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\UserProdukController;
@@ -79,7 +80,12 @@ Route::middleware(['auth'])->group(function () {
     // checkout
     Route::get('/checkout', [CartController::class, 'showcheckout'])->name('checkout');
     Route::get('/checkout', [CartController::class, 'showCheckoutForm'])->name('checkoutForm');
+    // Route::get('/checkout', [CartController::class, 'checkout'])->name('checkout');
+    // Route::post('/checkout', [CartController::class, 'checkout'])->name('checkout');
     // Route::get('/checkout', [CartController::class, 'getCouriers'])->name('checkoutForm');
+
+    // Route::get('/checkout', [CheckoutController::class, 'checkout']);
+    // Route::post('/checkout', [CheckoutController::class, 'checkout']);
 
     // bagian admin
     Route::get('/Product', [ProdukController::class, 'Produk']);
@@ -119,6 +125,15 @@ Route::middleware(['auth'])->group(function () {
         '/pengguna',
         [PemilikController::class, 'pengguna']
     );
+
+
+    //CRUD bagian pemilik
+    Route::get('/pengguna', [PemilikController::class, 'pengguna']);
+    Route::get('/pengguna/create', [PemilikController::class, 'create']);
+    Route::post('/pengguna/store', [PemilikController::class, 'store']);
+    Route::get('/pengguna/{id}/edit', [PemilikController::class, 'edit'])->name('pengguna.edit');
+    Route::put('/pengguna/{id}', [PemilikController::class, 'update']);
+    Route::delete('/pengguna/{id}', [PemilikController::class, 'delete'])->name('pengguna.delete');
 });
 
 

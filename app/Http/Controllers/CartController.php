@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\CartModel;
+use App\Models\Order;
 use App\Models\Produk;
 use App\Models\User;
 use Exception;
@@ -142,7 +143,7 @@ class CartController extends Controller
 
 
 
-    public function showCheckoutForm()
+    public function showCheckoutForm(Request $request)
     {
         $cart = session()->get('cart', []);
 
@@ -232,6 +233,34 @@ class CartController extends Controller
             }
 
 
+            // return $request->all();;
+            $request->request->add(['status' => 'Unpaid', 'payment_id' => uniqid()]); //add request
+            // dd($request->all());
+            // $order = Order::create($request->all());
+
+            // Set your Merchant Server Key
+            \Midtrans\Config::$serverKey = config('midtrans.server_key');
+            // Set to Development/Sandbox Environment (default). Set to true for Production Environment (accept real transaction).
+            \Midtrans\Config::$isProduction = false;
+            // Set sanitization on (default)
+            \Midtrans\Config::$isSanitized = true;
+            // Set 3DS transaction for credit card to true
+            \Midtrans\Config::$is3ds = true;
+
+            $params = array(
+                'transaction_details' => array(
+                    'order_id' => '1',
+                    'gross_amount' => '10000'
+                ),
+                'customer_details' => array(
+                    'first_name' => $request->nama,
+                    'last_name' => ' ',
+                    'phone' => $request->phone,
+                ),
+            );
+
+            $snapToken = \Midtrans\Snap::getSnapToken($params);
+
 
             // Pass the provinces data to the view
             return view('User.checkout', compact('cart', 'provinces', 'cities', 'couriers'));
@@ -241,71 +270,55 @@ class CartController extends Controller
         }
     }
 
-    // public function getCouriers()
+
+
+
+
+
+
+
+    // public function checkout(Request $request)
     // {
-    //     $response = Http::withHeaders([
-    //         'key' => '396ac24530a45de4a72c826072b2587f', // Ganti dengan API Key Anda dari Raja Ongkir
-    //     ])->get('https://api.rajaongkir.com/starter/courier');
+    //     // return $request->all();;
+    //     $request->request->add(['status' => 'Unpaid', 'payment_id' => uniqid()]); //add request
+    //     // dd($request->all());
+    //     // $order = Order::create($request->all());
 
-    //     $responseData = $response->json();
+    //     // Set your Merchant Server Key
+    //     \Midtrans\Config::$serverKey = config('midtrans.server_key');
+    //     // Set to Development/Sandbox Environment (default). Set to true for Production Environment (accept real transaction).
+    //     \Midtrans\Config::$isProduction = false;
+    //     // Set sanitization on (default)
+    //     \Midtrans\Config::$isSanitized = true;
+    //     // Set 3DS transaction for credit card to true
+    //     \Midtrans\Config::$is3ds = true;
 
-    //     if (isset($responseData['rajaongkir']['results'])) {
-    //         $couriers = $responseData['rajaongkir']['results'];
-    //     } else {
-    //         // Jika data kurir tidak ditemukan, atur $couriers menjadi array kosong
-    //         $couriers = [];
-    //     }
+    //     $params = array(
+    //         'transaction_details' => array(
+    //             'order_id' => '1',
+    //             'gross_amount' => '10000'
+    //         ),
+    //         'customer_details' => array(
+    //             'first_name' => $request->nama,
+    //             'last_name' => ' ',
+    //             'phone' => $request->phone,
+    //         ),
+    //     );
 
-    //     return view('User.checkout', ['couriers' => $couriers]);
+    //     $snapToken = \Midtrans\Snap::getSnapToken($params);
+    //     return view('User.checkout', compact('snapToken'));
     // }
 
-
-
-
-    // public function showCheckoutForm()
-    // {
-    //     // Create an instance of Guzzle HTTP client
-    //     $client = new Client();
-
-    //     try {
-    //         // Send a GET request to the Raja Ongkir API endpoint to fetch provinces
-    //         $responseProvinces = $client->get('https://api.rajaongkir.com/starter/province', [
-    //             'headers' => [
-    //                 'key' => '396ac24530a45de4a72c826072b2587f'
-    //             ]
-    //         ]);
-
-    //         // Decode the JSON response and extract the provinces data
-    //         $responseDataProvinces = json_decode($responseProvinces->getBody(), true);
-    //         $provinces = $responseDataProvinces['rajaongkir']['results'];
-
-    //         // Send a GET request to the Raja Ongkir API endpoint to fetch cities
-    //         $responseCities = $client->get('https://api.rajaongkir.com/starter/city', [
-    //             'headers' => [
-    //                 'key' => '396ac24530a45de4a72c826072b2587f'
-    //             ]
-    //         ]);
-
-    //         // Decode the JSON response and extract the cities data
-    //         $responseDataCities = json_decode($responseCities->getBody(), true);
-    //         $cities = $responseDataCities['rajaongkir']['results'];
-
-    //         // Send a GET request to the Raja Ongkir API endpoint to fetch shipping couriers
-    //         $responseCouriers = $client->get('https://api.rajaongkir.com/starter/courier', [
-    //             'headers' => [
-    //                 'key' => '396ac24530a45de4a72c826072b2587f'
-    //             ]
-    //         ]);
-
-    //         // Decode the JSON response and extract the shipping couriers data
-    //         $responseDataCouriers = json_decode($responseCouriers->getBody(), true);
-    //         $couriers = $responseDataCouriers['rajaongkir']['results'];
-
-    //         // Pass the provinces, cities, and couriers data to the view
-    //         return view('User.checkout', compact('provinces', 'cities', 'couriers'));
-    //     } catch (Exception $e) {
-    //         // Handle error if there's an issue fetching data from the API
-    //         return response()->json(['error' => 'Failed to fetch data from Raja Ongkir API'], 500);
-    //     }
-    // }
+    // fungsi midtrans callback untuk melakukan reques apakah pesanan yang telah dipesan sudah berhasil atau tidak dengan menampilkan status pesanan lunas atau belum lunas.
+    public function callback(Request $request)
+    {
+        $serverKey = config('midtrans.server_key');
+        $hashed = hash("sha512", $request->order_id . $request->status_code . $request->gross_amount . $serverKey);
+        if ($hashed == $request->signature_key) {
+            if ($request->transaction_status == 'settlement' or $request->transaction_status == 'capture') {
+                $order = Order::where('payment_id',  $request->order_id)->first();
+                $order->update(['status' => 'Paid']);
+            }
+        }
+    }
 }
