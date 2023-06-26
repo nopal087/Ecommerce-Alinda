@@ -29,9 +29,17 @@
                         <input type="text" name="alamat" value="{{ old('alamat') }}" class="form-control"
                             placeholder="Alamat" required>
                     </div>
-                    <div class="mb-4">
+                    {{-- <div class="mb-4">
                         <input type="password" name="password" class="form-control" placeholder="Password" required>
+                    </div> --}}
+
+                    <div class="form-floating mb-4">
+                        <input type="password" class="form-control" name="password" id="floatingPassword"
+                            placeholder="Password">
+                        <label for="floatingPassword">Password</label>
+                        <span id="togglePassword" class="password-toggle"><i class="far fa-eye-slash"></i></span>
                     </div>
+
                     <div class="mb-4">
                         <input type="hidden" name="role" value="user" class="form-control" placeholder="role"
                             required>
@@ -49,7 +57,31 @@
     </div>
     <!-- section login end-->
 
-    <!-- Optional JavaScript; choose one of the two! -->
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    {{-- menampilkan mata untuk hide and show password --}}
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var togglePassword = document.getElementById('togglePassword');
+            var passwordInput = document.getElementById('floatingPassword');
+            var passwordToggleIcon = togglePassword.querySelector('i');
+
+            togglePassword.addEventListener('click', function() {
+                if (passwordInput.type === 'password') {
+                    passwordInput.type = 'text';
+                    passwordToggleIcon.classList.remove('far', 'fa-eye');
+                    passwordToggleIcon.classList.add('far', 'fa-eye-slash');
+                } else {
+                    passwordInput.type = 'password';
+                    passwordToggleIcon.classList.remove('far', 'fa-eye-slash');
+                    passwordToggleIcon.classList.add('far', 'fa-eye');
+                }
+            });
+        });
+    </script>
+
+
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"

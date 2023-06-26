@@ -48,7 +48,7 @@
                             </div>
                         </form>
 
-                        {{-- <div class="mt-5 mb-3">
+                        <div class="mt-5 mb-3">
                             <h4 class="head-check-out">Pengiriman</h4>
                         </div>
                         <form>
@@ -61,7 +61,9 @@
                                     @endforeach
                                 </select>
                             </div>
-                        </form> --}}
+                        </form>
+
+
 
                 </div>
 
@@ -82,7 +84,12 @@
                                 <tbody>
                                     @php
                                         $subtotal = 0;
+                                        $ongkir = 20000;
+                                        
+                                        // Hitung total harga
+                                        $totalHarga = $subtotal + $ongkir;
                                     @endphp
+
 
                                     @foreach ($cart as $productId => $data)
                                         <tr>
@@ -112,14 +119,17 @@
                                         <th>SubTotal</th>
                                         <td colspan="2">Rp {{ number_format($subtotal) }}</td>
                                     </tr>
+
                                     <tr>
                                         <th>Ongkir</th>
-                                        <td colspan="2">Rp belum dikoding</td>
+                                        <td colspan="2">Rp {{ number_format($ongkir, 0, ',', '.') }}</td>
                                     </tr>
                                     <tr>
                                         <th>Total</th>
-                                        <td colspan="2"><span class="tot">Rp belum dikoding</span></td>
+                                        <td colspan="2"><span class="tot">Rp
+                                                {{ number_format($totalHarga + $subtotal, 0, ',', '.') }}</span></td>
                                     </tr>
+
                                 </tbody>
 
                             </table>

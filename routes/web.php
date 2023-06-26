@@ -79,6 +79,7 @@ Route::middleware(['auth'])->group(function () {
     // checkout
     Route::get('/checkout', [CartController::class, 'showcheckout'])->name('checkout');
     Route::get('/checkout', [CartController::class, 'showCheckoutForm'])->name('checkoutForm');
+    // Route::get('/checkout', [CartController::class, 'getCouriers'])->name('checkoutForm');
 
     // bagian admin
     Route::get('/Product', [ProdukController::class, 'Produk']);

@@ -8,6 +8,7 @@ use App\Models\User;
 use Exception;
 use Illuminate\Http\Request;
 use GuzzleHttp\Client;
+use Illuminate\Support\Facades\Http;
 
 class CartController extends Controller
 {
@@ -143,8 +144,27 @@ class CartController extends Controller
 
     public function showCheckoutForm()
     {
-
         $cart = session()->get('cart', []);
+
+        $subtotal = 0;
+        $ongkir = 20000;
+
+        // Hitung subtotal
+        foreach ($cart as $productId => $data) {
+            $subtotal += $data['harga_produk'] * $data['jumlah'];
+        }
+
+        // Ubah harga ongkir menjadi 27.000 jika subtotal lebih dari 50.000
+        if ($subtotal > 50000) {
+            $ongkir = 27000;
+        }
+
+        // Hitung total harga
+        $totalHarga = $subtotal + $ongkir;
+
+
+
+
 
         // Create an instance of Guzzle HTTP client
         $client = new Client();
@@ -173,16 +193,72 @@ class CartController extends Controller
             $cities = $responseDataCities['rajaongkir']['results'];
 
 
+            $response = Http::withHeaders([
+                'key' => '396ac24530a45de4a72c826072b2587f', // Ganti dengan API Key Anda dari Raja Ongkir
+            ])->get('https://api.rajaongkir.com/starter/courier');
+
+            $responseData = $response->json();
+
+            if (isset($responseData['rajaongkir']['results'])) {
+                $couriers = $responseData['rajaongkir']['results'];
+            } else {
+                // Jika data kurir tidak ditemukan, atur $couriers menjadi array kosong
+                $couriers = [
+                    ['code' => 'jne', 'name' => 'JNE'],
+                    ['code' => 'pos', 'name' => 'POS'],
+                    ['code' => 'tiki', 'name' => 'TIKI'],
+                ];
+            }
+
+
+            // cek ongkir
+
+            $originCityName = 'Demak'; // Ganti dengan nama kota asal pengiriman
+
+            $response = Http::withHeaders([
+                'key' => '396ac24530a45de4a72c826072b2587f', // Ganti dengan API Key Anda dari Raja Ongkir
+            ])->get('https://api.rajaongkir.com/starter/city', [
+                'province' => '', // Biarkan kosong jika tidak ingin memfilter berdasarkan provinsi
+                'city' => $originCityName, // Nama kota asal pengiriman
+            ]);
+
+            $responseData = $response->json();
+
+            if (isset($responseData['rajaongkir']['results'])) {
+                $originCityCode = $responseData['rajaongkir']['results'][0]['city_id'];
+            } else {
+                // Kode kota asal pengiriman tidak ditemukan
+                $originCityCode = null;
+            }
 
 
 
             // Pass the provinces data to the view
-            return view('User.checkout', compact('cart', 'provinces', 'cities'));
+            return view('User.checkout', compact('cart', 'provinces', 'cities', 'couriers'));
         } catch (Exception $e) {
             // Handle error if there's an issue fetching data from the API
             return response()->json(['error' => 'Failed to fetch provinces'], 500);
         }
     }
+
+    // public function getCouriers()
+    // {
+    //     $response = Http::withHeaders([
+    //         'key' => '396ac24530a45de4a72c826072b2587f', // Ganti dengan API Key Anda dari Raja Ongkir
+    //     ])->get('https://api.rajaongkir.com/starter/courier');
+
+    //     $responseData = $response->json();
+
+    //     if (isset($responseData['rajaongkir']['results'])) {
+    //         $couriers = $responseData['rajaongkir']['results'];
+    //     } else {
+    //         // Jika data kurir tidak ditemukan, atur $couriers menjadi array kosong
+    //         $couriers = [];
+    //     }
+
+    //     return view('User.checkout', ['couriers' => $couriers]);
+    // }
+
 
 
 

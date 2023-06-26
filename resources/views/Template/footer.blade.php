@@ -49,7 +49,7 @@
 <!-- Footer section end-->
 
 <!-- Optional JavaScript; choose one of the two! -->
-<script src="assets/js/script.js"></script>
+<script src="{{ asset('js/script.js') }}"></script>
 <!-- AOS animasi -->
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 

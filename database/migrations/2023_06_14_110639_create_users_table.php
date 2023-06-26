@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->text('alamat')->nullable();
-            $table->integer('nohp');
+            $table->string('nohp');
             $table->string('password');
             $table->enum('role', ['user', 'admin', 'pemilik'])->default('user');
             $table->timestamps();
